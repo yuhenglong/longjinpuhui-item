@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>立刻推荐</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="css/style_9.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="css/yu_style_9.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/tab.js"></script>
+    <style>
+        /* .dialog_mengban {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .dialog {
+            position: absolute;
+            width: 80%;
+            height: 130px;
+            top: 50%;
+            left: 50%;
+            margin-left: -40%;
+            margin-top: -65px;
+            background-color: #fff;
+            border-radius: 5px;
+            /* font-size: 14px;
+            line-height: 14px; */
+            /* text-align: center;
+            box-sizing: border-box;
+            padding: 0 10px;
+        } */
+/* 
+        .btn_sure {
+            padding: 5px 15px;
+            border-radius: 5px;
+            background: -webkit-linear-gradient(right,
+                    #6895f8,
+                    #2a64d3);
+            background: -o-linear-gradient(right,
+                    #6895f8,
+                    #2a64d3);
+            background: -moz-linear-gradient(right,
+                    #6895f8,
+                    #2a64d3);
+            background: linear-gradient(to right, #6895f8, #2a64d3);
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            outline: none;
+            border: none;
+        }
+
+        .dialog p {
+            line-height: 1.25rem;
+            font-size: 1rem;
+        }  */
+
+        .alert {
+            display: none;
+        }
+
+        /* .alert-warning {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            margin-top: -30px;
+            margin-left: -40%;
+            color: #fff;
+            background-color: #6895f8;
+            border: none;
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+        }
+
+        button:focus {
+            outline: 0 !important;
+            background-color: rgba(104,149,248,0);
+        }
+        .close:focus {
+            outline: none;
+            border: none;
+        }
+        .sp_yu{
+            font-size:1.1rem;
+            line-height:1.5rem;
+        }
+        .stro{
+            font-size:1.1rem;
+            line-height:1.5rem;
+        } */
+    </style>
+</head>
+
+<body>
+    <section class="aui-flexView">
+        <header class="aui-navBar aui-navBar-fixed b-line">
+            <a href="javascript:history.back(-1)" class="aui-navBar-item">
+                <i class="icon icon-return"></i>
+            </a>
+            <div class="aui-center">
+                <span class="aui-center-title">请填写资料</span>
+            </div>
+            <a href="javascript:;" class="aui-navBar-item">
+                <i class="icon icon-sys"></i>
+            </a>
+        </header>
+
+        <div>
+            <div class="divHeight"></div>
+            <div class="img">
+                <img src="images/tuijiannow.jpg" alt="" style="width:100%;height:auto;">
+            </div>
+            <div class="divHeight" style="background-color: #fff;"></div>
+            <div class="gw">
+                <i class="icon_person"></i>
+                <span class="mygw">我的服务顾问</span>
+            </div>
+            <div class="divHeight"></div>
+            <div class="pad_bot">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <td class="size pad">客户姓名：</td>
+                            <td style="width:60%;" class="pad"><input type="text" class="form-control" id="name"
+                                    placeholder="请输入姓名"></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <td class="size pad">客户电话：</td>
+                            <td style="width:60%;" class="pad"><input type="text" class="form-control" id="pho"
+                                    placeholder="请输入电话(可选)"></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <td class="size pad">推荐人电话：</td>
+                            <td style="width:60%;" class="pad"><input type="text" class="form-control" id="bpho"
+                                    placeholder="请输入电话"></td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #ddd;">
+                            <td class="size pad">邀请码：</td>
+                            <td style="width:60%;" class="pad"><input type="text" class="form-control" id="byo"
+                                    placeholder="请输入邀请码(可选)"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn btn-info btn_yu" id="tj">立刻推荐拿佣金</button>
+            </div>
+
+    </section>
+    <div class="dialog_mengban">
+        <div class="dialog">
+            <h4>温馨提示</h4>
+            <p>您的信息已提交，谢谢您的支持，我们会及时与您沟通。</p>
+            <button class="btn_sure">确定</button>
+        </div>
+    </div>
+
+    <div class="alert alert-warning">
+        <strong class='stro'>提示：</strong><span class="sp_yu">您的输入不完整。</span>
+        <button type="button" class="btn btn-default btn-sm close" aria-label="Left Align">
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+    </div>
+
+</body>
+
+</html>
+<script src="js/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('#tj').click(function () {
+            let isExist = $("#name").val() != '' && $('#bpho').val() != '';
+            if (isExist) {
+                $('.dialog_mengban').css('display', 'block')
+            } else {
+                $('.alert').fadeIn();
+            }
+        })
+        $('.close').click(function () {
+            $('.alert').fadeOut();
+        })
+        $('.btn_sure').click(function (event) {
+            // 阻止事件冒泡
+            event.stopPropagation();
+            $('.dialog_mengban').css('display', 'none')
+        })
+        $('.dialog').click(function (event) {
+            event.stopPropagation();
+        })
+        $('.dialog_mengban').click(function () {
+            $('.dialog_mengban').css('display', 'none')
+        })
+    })
+</script>
